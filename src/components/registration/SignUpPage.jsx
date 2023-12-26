@@ -6,21 +6,16 @@ const SignUpPage = () => {
     mobile: "",
     email: "",
     dob: "",
-    profilePicture: null,
     password: "",
     confirmPassword: "",
   });
 
   const handleChange = (event) => {
     const { name, value, type } = event.target;
+    console.log("Name:", name, "Value:", value, "Type:", type);
 
-    // Basic validation for name and mobile number
     if (type === "text" && name === "name") {
-      if (/^[A-Za-z ]+$/.test(value)) {
-        setFormData({ ...formData, [name]: value });
-      }
-    } else if (type === "tel" && name === "mobile") {
-      if (/^[0-9]+$/.test(value)) {
+      if (/^[A-Za-z ]+$/.test(value) || value === "") {
         setFormData({ ...formData, [name]: value });
       }
     } else {
@@ -28,21 +23,10 @@ const SignUpPage = () => {
     }
   };
 
-  const handleFileChange = (event) => {
-    const file = event.target.files[0];
-
-    // Basic validation for profile picture size
-    if (file && file.size <= 20000) {
-      setFormData({ ...formData, profilePicture: file });
-    } else {
-      alert("Profile picture size should be less than 20KB.");
-    }
-  };
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Save signup data to localStorage
+    // Save sign up data to localStorage
     const existingUsers =
       JSON.parse(localStorage.getItem("userSignupData")) || [];
     const newUser = { ...formData };
@@ -57,7 +41,6 @@ const SignUpPage = () => {
       mobile: "",
       email: "",
       dob: "",
-      profilePicture: null,
       password: "",
       confirmPassword: "",
     });
@@ -68,10 +51,12 @@ const SignUpPage = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded-lg shadow-md max-w-md w-full">
-        <h2 className="text-2xl font-bold mb-6 text-indigo-700">Sign Up</h2>
-        <form onSubmit={handleSubmit}>
-          <div className="mb-4">
+      <div className="bg-white p-4 md:p-8 rounded-lg shadow-md max-w-md w-full">
+        <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-indigo-700">
+          Sign Up
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div className="mb-2 md:mb-4">
             <label
               htmlFor="name"
               className="block text-sm font-medium text-gray-600"
@@ -90,7 +75,7 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2 md:mb-4">
             <label
               htmlFor="mobile"
               className="block text-sm font-medium text-gray-600"
@@ -109,7 +94,7 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2 md:mb-4">
             <label
               htmlFor="email"
               className="block text-sm font-medium text-gray-600"
@@ -128,7 +113,7 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="mb-4">
+          <div className="mb-2 md:mb-4">
             <label
               htmlFor="dob"
               className="block text-sm font-medium text-gray-600"
@@ -146,24 +131,7 @@ const SignUpPage = () => {
             />
           </div>
 
-          <div className="mb-4">
-            <label
-              htmlFor="profilePicture"
-              className="block text-sm font-medium text-gray-600"
-            >
-              Profile Picture:
-            </label>
-            <input
-              type="file"
-              id="profilePicture"
-              name="profilePicture"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="mt-1 p-2 w-full border rounded-md"
-            />
-          </div>
-
-          <div className="mb-4">
+          <div className="mb-2 md:mb-4">
             <label
               htmlFor="password"
               className="block text-sm font-medium text-gray-600"

@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import ViewHeadlineIcon from "@mui/icons-material/ViewHeadline";
+
 const Navbar = () => {
   return (
     <>
@@ -9,11 +11,17 @@ const Navbar = () => {
         </div>
 
         {/* Right side */}
+        <div className="md:hidden">
+          {/* Responsive Menu Icon */}
+          <ViewHeadlineIcon className="text-white cursor-pointer" />
+        </div>
+
         <div className="hidden md:flex items-center space-x-4">
           {/* Home */}
           <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
             <Link to="/">Home</Link>
           </div>
+
           {/* Restaurant List */}
           <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
             <Link to="/restaurant-list">Restaurant List</Link>
@@ -28,8 +36,15 @@ const Navbar = () => {
           <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
             <Link to="/about">About Us</Link>
           </div>
+
+          {/* Sign Up */}
           <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
             <Link to="/sign-up">Sign Up</Link>
+          </div>
+
+          {/* Login */}
+          <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
+            <Link to="/login">Login</Link>
           </div>
         </div>
       </div>
