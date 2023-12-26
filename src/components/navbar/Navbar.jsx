@@ -16,7 +16,7 @@ const Navbar = () => {
           </div>
           {/* Restaurant List */}
           <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
-            Restaurant List
+            <Link to="/restaurant-list">Restaurant List</Link>
           </div>
 
           {/* Add Restaurant */}
