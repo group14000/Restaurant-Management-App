@@ -28,6 +28,9 @@ const Navbar = () => {
           <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
             <Link to="/about">About Us</Link>
           </div>
+          <div className="text-white hover:text-gray-300 cursor-pointer transition duration-300">
+            <Link to="/sign-up">Sign Up</Link>
+          </div>
         </div>
       </div>
     </>

@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddRestaurantForm from "./components/restaurent/AddRestaurantForm";
 import AboutPage from "./components/aboutpage/AboutPage";
 import RestaurantList from "./components/restaurent/RestaurantList";
+import SignUpPage from "./components/registration/SignUpPage";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/add-restaurant" element={<AddRestaurantForm />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/restaurant-list" element={<RestaurantList />} />
+          <Route path="/sign-up" element={<SignUpPage />} />
         </Routes>
 
         {/* Footer Section */}
