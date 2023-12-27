@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [loginData, setLoginData] = useState({
@@ -39,6 +40,12 @@ const LoginPage = () => {
 
     // Clear login form fields
     setLoginData({ email: "", password: "" });
+  };
+
+  // Placeholder function for handling signup navigation
+  const handleSignupNavigation = () => {
+    // Add your signup navigation logic here
+    console.log("Navigate to signup page");
   };
 
   return (
@@ -93,6 +100,20 @@ const LoginPage = () => {
             {isLoggedIn ? "Logout" : "Login"}
           </button>
         </form>
+
+        {/* Signup link */}
+        <div className="mt-4 text-center text-sm">
+          <p>
+            New User!{" "}
+            <Link
+              to="/sign-up"
+              className="text-indigo-700"
+              onClick={handleSignupNavigation}
+            >
+              Sign Up
+            </Link>
+          </p>
+        </div>
       </div>
     </div>
   );

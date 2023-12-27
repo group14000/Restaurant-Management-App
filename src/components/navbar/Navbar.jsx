@@ -30,8 +30,7 @@ const Navbar = () => {
           { to: "/restaurant-list", label: "Restaurant List" },
           { to: "/add-restaurant", label: "Add Restaurant" },
           { to: "/about", label: "About Us" },
-          { to: "/sign-up", label: "Sign Up" },
-          { to: "/login", label: "Login" },
+          { to: "/login", label: "Register" },
         ].map((link) => (
           <div
             key={link.to}
