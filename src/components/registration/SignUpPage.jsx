@@ -45,6 +45,9 @@ const SignUpPage = () => {
       confirmPassword: "",
     });
 
+    // Display alert message
+    alert("Form submitted successfully!");
+
     // Add your additional signup logic here if needed
     console.log("Form data submitted:", newUser);
   };

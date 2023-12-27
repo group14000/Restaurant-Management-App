@@ -29,6 +29,9 @@ const LoginPage = () => {
       // Perform login logic (e.g., redirect to dashboard)
       console.log("Login successful:", loggedInUser);
       setLoggedIn(true);
+
+      // Display alert message for successful login
+      alert("Login successful!");
     } else {
       // Display an error message for unsuccessful login
       console.error("Invalid email or password");
@@ -38,22 +41,13 @@ const LoginPage = () => {
     setLoginData({ email: "", password: "" });
   };
 
-  const handleLogout = () => {
-    // Perform logout logic (e.g., redirect to login page)
-    console.log("Logout successful");
-    setLoggedIn(false);
-  };
-
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <div className="bg-white p-4 md:p-8 rounded-lg shadow-md max-w-md w-full">
         <h2 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-indigo-700">
           {isLoggedIn ? "Logout" : "Login"}
         </h2>
-        <form
-          onSubmit={isLoggedIn ? handleLogout : handleLogin}
-          className="space-y-4"
-        >
+        <form onSubmit={handleLogin} className="space-y-4">
           <div className="mb-2 md:mb-4">
             <label
               htmlFor="email"
